@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Ip_Ratings>
+            <version>0.1.0</version>
+        </Ip_Ratings>
+    </modules>
+    <frontend>
+		<routers>
+			<ip_ratings>
+				<use>standard</use>
+				<args>
+					<module>Ip_Ratings</module>
+					<frontName>ratings</frontName>
+				</args>
+			</ip_ratings>
+		</routers>
+        <layout>
+            <updates>
+                <ratings>
+                    <file>ratings.xml</file>
+                </ratings>
+            </updates>
+        </layout>
+	</frontend>
+    <global>
+        <blocks>
+            <ratings>
+                <class>Ip_Ratings_Block</class>
+            </ratings>
+        </blocks>
+		 
+		<helpers>
+			<ratings>
+				<class>Ip_Ratings_Helper</class>
+			</ratings>
+		</helpers> 
+		
+		<rewrite>
+			<ip_ratings_product>
+				<from><![CDATA[#^/review/product/#]]></from>
+				<to>/ratings/product/</to>
+			</ip_ratings_product>
+		</rewrite>    
+    </global>
+</config>
